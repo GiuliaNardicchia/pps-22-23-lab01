@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -36,15 +35,28 @@ public class CircularListTest {
     }
 
     @Test
-    void testIfNextElementExist() {
-        List<Integer> list = new ArrayList<>();
+    void testNextElements() {
         this.circularList.add(1);
         this.circularList.add(2);
         this.circularList.add(3);
+        assertEquals(Arrays.asList(1,2,3), getNextElements(this.circularList));
+    }
+
+    @Test
+    void testNextEdgeElement() {
+        this.circularList.add(1);
+        this.circularList.add(2);
+        List<Integer> list = getNextElements(this.circularList);
         list.add(this.circularList.next().get());
-        list.add(this.circularList.next().get());
-        list.add(this.circularList.next().get());
-        assertEquals(Arrays.asList(1,2,3), list);
+        assertEquals(Arrays.asList(1,2,1), list);
+    }
+
+    private List<Integer> getNextElements(CircularList circularList) {
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < circularList.size(); i++) {
+            list.add(circularList.next().get());
+        }
+        return list;
     }
 
 }
