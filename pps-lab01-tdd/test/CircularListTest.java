@@ -3,6 +3,11 @@ import lab01.tdd.CircularListImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -28,6 +33,18 @@ public class CircularListTest {
     @Test
     void testCanBeEmpty() {
         assertTrue(this.circularList.isEmpty());
+    }
+
+    @Test
+    void testIfNextElementExist() {
+        List<Integer> list = new ArrayList<>();
+        this.circularList.add(1);
+        this.circularList.add(2);
+        this.circularList.add(3);
+        list.add(this.circularList.next().get());
+        list.add(this.circularList.next().get());
+        list.add(this.circularList.next().get());
+        assertEquals(Arrays.asList(1,2,3), list);
     }
 
 }
