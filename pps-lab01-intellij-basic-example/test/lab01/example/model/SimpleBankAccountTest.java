@@ -1,3 +1,5 @@
+package lab01.example.model;
+
 import lab01.example.model.AccountHolder;
 import lab01.example.model.BankAccount;
 import lab01.example.model.SimpleBankAccount;
@@ -10,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class SimpleBankAccountTest {
 
-    private AccountHolder accountHolder;
+    protected AccountHolder accountHolder;
     private BankAccount bankAccount;
 
     @BeforeEach
