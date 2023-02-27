@@ -34,4 +34,18 @@ public interface BankAccount {
      * @param amount the amount of the withdrawal
      */
     void withdraw(int userID, double amount);
+
+    /**
+     * Allows the deposit or the withdrawal using the ATM applying a fee .
+     *
+     * @param fee the fee to apply at each transaction
+     */
+    void setFee(int fee);
+
+    /**
+     * Returns the fee .
+     *
+     * @return the fee applied at each transaction
+     */
+    int getFee();
 }
