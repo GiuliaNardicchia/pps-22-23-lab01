@@ -68,6 +68,19 @@ public class CircularListTest {
         assertEquals(Arrays.asList(2,1,2), list);
     }
 
+    @Test
+    void testCanBeReset() {
+        this.circularList.add(1);
+        this.circularList.add(2);
+        this.circularList.add(3);
+        List<Integer> list = this.getNextElements(this.circularList);
+        list.add(this.circularList.next().get());
+        list.add(this.circularList.next().get());
+        this.circularList.reset();
+        list.add(this.circularList.next().get());
+        assertEquals(Arrays.asList(1,2,3,1,2,1), list);
+    }
+
     private List<Integer> getNextElements(final CircularList circularList) {
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < circularList.size(); i++) {
@@ -83,5 +96,4 @@ public class CircularListTest {
         }
         return list;
     }
-
 }
