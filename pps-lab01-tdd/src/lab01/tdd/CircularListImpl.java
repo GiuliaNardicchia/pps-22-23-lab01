@@ -1,7 +1,5 @@
 package lab01.tdd;
 
-import lab01.tdd.CircularList;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -28,16 +26,20 @@ public class CircularListImpl implements CircularList {
 
     @Override
     public Optional<Integer> next() {
-        return this.isEmpty() ? Optional.empty() : Optional.of(this.circularList.get(this.getIndex()));
+        return this.isEmpty() ? Optional.empty() : Optional.of(this.circularList.get(this.getNextIndex()));
     }
 
-    private int getIndex() {
+    private int getNextIndex() {
         return Math.floorMod(this.index++, this.size());
     }
 
     @Override
     public Optional<Integer> previous() {
-        return Optional.empty();
+        return this.isEmpty() ? Optional.empty() : Optional.of(this.circularList.get(this.getPreviousIndex()));
+    }
+
+    private int getPreviousIndex() {
+        return this.size() - 1 - this.getNextIndex();
     }
 
     @Override

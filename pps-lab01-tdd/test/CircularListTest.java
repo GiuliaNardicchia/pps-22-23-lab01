@@ -46,15 +46,31 @@ public class CircularListTest {
     void testNextEdgeElement() {
         this.circularList.add(1);
         this.circularList.add(2);
-        List<Integer> list = getNextElements(this.circularList);
+        List<Integer> list = this.getNextElements(this.circularList);
         list.add(this.circularList.next().get());
         assertEquals(Arrays.asList(1,2,1), list);
     }
 
-    private List<Integer> getNextElements(CircularList circularList) {
+    @Test
+    void testPreviousElements() {
+        this.circularList.add(1);
+        this.circularList.add(2);
+        this.circularList.add(3);
+        assertEquals(Arrays.asList(3,2,1), this.getPreviousElements(this.circularList));
+    }
+
+    private List<Integer> getNextElements(final CircularList circularList) {
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < circularList.size(); i++) {
             list.add(circularList.next().get());
+        }
+        return list;
+    }
+
+    private List<Integer> getPreviousElements(CircularList circularList) {
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < circularList.size(); i++) {
+            list.add(circularList.previous().get());
         }
         return list;
     }
