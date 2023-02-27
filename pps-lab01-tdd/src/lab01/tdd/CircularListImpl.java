@@ -22,7 +22,7 @@ public class CircularListImpl implements CircularList {
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return this.circularList.isEmpty();
     }
 
     @Override

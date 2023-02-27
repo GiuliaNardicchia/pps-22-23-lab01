@@ -25,4 +25,9 @@ public class CircularListTest {
         assertEquals(3, this.circularList.size());
     }
 
+    @Test
+    void testCanBeEmpty() {
+        assertTrue(this.circularList.isEmpty());
+    }
+
 }
