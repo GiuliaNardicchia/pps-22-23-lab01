@@ -6,11 +6,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SimpleBankAccountWithAtmTest extends SimpleBankAccountTest {
 
-    private BankAccount bankAccountWithAtm;
-
+    @Override
     @BeforeEach
     void beforeEach() {
-        this.bankAccountWithAtm = new SimpleBankAccountWithAtm(accountHolder, 0);
+        this.bankAccount = new SimpleBankAccountWithAtm(accountHolder, 0);
     }
 
 }
