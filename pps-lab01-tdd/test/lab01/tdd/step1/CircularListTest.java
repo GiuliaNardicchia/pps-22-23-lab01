@@ -1,5 +1,5 @@
-import lab01.tdd.CircularList;
-import lab01.tdd.CircularListImpl;
+package lab01.tdd.step1;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

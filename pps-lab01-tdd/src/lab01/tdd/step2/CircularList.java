@@ -1,6 +1,6 @@
-package lab01.tdd;
+package lab01.tdd.step2;
 
-import java.util.Optional;
+import java.util.Iterator;
 
 /**
  * Represents a list of integers, with a built-in iterator that is bidirectional and circular.
@@ -31,13 +31,13 @@ public interface CircularList {
      * Provides the next element of the list, as given by the built-in iterator.
      * @return the next element of the list, or an empty optional if the list is empty
      */
-    Optional<Integer> next();
+    Iterator<Integer> forwardIteration();
 
     /**
      * Provides the previous element of the list. Its behaviour is dual of the next() method.
      * @return the previous element into the list
      */
-    Optional<Integer> previous();
+    Iterator<Integer> backwardIteration();
 
     /**
      * Reset the position of current element back to the first one of the list.
