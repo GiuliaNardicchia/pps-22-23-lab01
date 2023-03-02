@@ -30,7 +30,7 @@ public class CircularListImpl implements CircularList {
 
     @Override
     public Iterator<Integer> backwardIteration() {
-        return null;
+        return this.circularList.listIterator(this.size());
     }
 
     @Override

@@ -22,10 +22,23 @@ class CircularListTest {
         this.circularList.add(1);
         this.circularList.add(2);
         List<Integer> list = new ArrayList<>();
-        Iterator<Integer> listIterator = this.circularList.forwardIteration();
-        list.add(listIterator.next());
-        list.add(listIterator.next());
-        list.add(listIterator.next());
+        Iterator<Integer> iterator = this.circularList.forwardIteration();
+        list.add(iterator.next());
+        list.add(iterator.next());
+        list.add(iterator.next());
         assertEquals(Arrays.asList(0,1,2), list);
+    }
+
+    @Test
+    void testBackwardIteration() {
+        this.circularList.add(0);
+        this.circularList.add(1);
+        this.circularList.add(2);
+        List<Integer> list = new ArrayList<>();
+        ListIterator<Integer> listIterator = (ListIterator<Integer>) this.circularList.backwardIteration();
+        list.add(listIterator.previous());
+        list.add(listIterator.previous());
+        list.add(listIterator.previous());
+        assertEquals(Arrays.asList(2,1,0), list);
     }
 }
