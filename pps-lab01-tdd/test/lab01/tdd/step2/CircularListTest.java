@@ -41,4 +41,15 @@ class CircularListTest {
         list.add(iterator.next());
         assertEquals(Arrays.asList(2,1,0), list);
     }
+
+    @Test
+    void testModificationException() {
+        this.circularList.add(0);
+        this.circularList.add(1);
+        this.circularList.add(2);
+        Iterator<Integer> iterator = this.circularList.backwardIteration();
+        iterator.next();
+        this.circularList.add(3);
+        assertThrows(ConcurrentModificationException.class, () -> iterator.next());
+    }
 }
