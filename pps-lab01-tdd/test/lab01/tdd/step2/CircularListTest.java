@@ -35,10 +35,10 @@ class CircularListTest {
         this.circularList.add(1);
         this.circularList.add(2);
         List<Integer> list = new ArrayList<>();
-        ListIterator<Integer> listIterator = (ListIterator<Integer>) this.circularList.backwardIteration();
-        list.add(listIterator.previous());
-        list.add(listIterator.previous());
-        list.add(listIterator.previous());
+        Iterator<Integer> iterator = this.circularList.backwardIteration();
+        list.add(iterator.next());
+        list.add(iterator.next());
+        list.add(iterator.next());
         assertEquals(Arrays.asList(2,1,0), list);
     }
 }
