@@ -69,6 +69,27 @@ public class CircularListTest {
     }
 
     @Test
+    void testBothNextAndPreviousAddingElements() {
+        this.circularList.add(0);
+        this.circularList.add(1);
+        List<Integer> list = new ArrayList<>();
+        list.add(this.circularList.previous().get());
+        list.add(this.circularList.next().get());
+        list.add(this.circularList.next().get());
+        list.add(this.circularList.previous().get());
+        this.circularList.add(2);
+        this.circularList.add(3);
+        this.circularList.add(4);
+        list.add(this.circularList.next().get());
+        list.add(this.circularList.next().get());
+        list.add(this.circularList.next().get());
+        list.add(this.circularList.next().get());
+        list.add(this.circularList.previous().get());
+        list.add(this.circularList.next().get());
+        assertEquals(Arrays.asList(1,0,1,0,1,2,3,4,3,4), list);
+    }
+
+    @Test
     void testCanBeReset() {
         this.circularList.add(1);
         this.circularList.add(2);

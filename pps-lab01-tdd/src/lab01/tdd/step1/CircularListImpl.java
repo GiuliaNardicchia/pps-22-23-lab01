@@ -8,6 +8,11 @@ public class CircularListImpl implements CircularList {
 
     private final List<Integer> circularList = new ArrayList<>();
     private int index;
+    private boolean isNext;
+
+    CircularListImpl() {
+        this.isNext = true;
+    }
 
     @Override
     public void add(int element) {
@@ -26,20 +31,35 @@ public class CircularListImpl implements CircularList {
 
     @Override
     public Optional<Integer> next() {
+        if (!this.isNext) {
+            this.index = this.index + 1;
+            this.isNext = true;
+        }
         return this.isEmpty() ? Optional.empty() : Optional.of(this.circularList.get(this.getNextIndex()));
     }
 
     private int getNextIndex() {
-        return Math.floorMod(this.index++, this.size());
+        if (this.index > this.size()-1) {
+            this.reset();
+        }
+        return this.index++;
     }
 
     @Override
     public Optional<Integer> previous() {
+        if (this.isNext) {
+            this.index = this.index - 1;
+            this.isNext = false;
+        }
         return this.isEmpty() ? Optional.empty() : Optional.of(this.circularList.get(this.getPreviousIndex()));
     }
 
     private int getPreviousIndex() {
-        return this.size() - 1 - this.getNextIndex();
+        this.index = this.index - 1;
+        if (this.index < 0) {
+            this.index = this.size()-1;
+        }
+        return this.index;
     }
 
     @Override
