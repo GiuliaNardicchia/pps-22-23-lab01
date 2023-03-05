@@ -24,4 +24,11 @@ class CircularListTest {
         assertEquals(Optional.empty(), this.circularList.filteredNext(i -> i >= 3));
     }
 
+    @Test
+    void testFilteredNext() {
+        this.circularList.add(0);
+        this.circularList.add(1);
+        this.circularList.add(2);
+        assertEquals(Optional.of(0), this.circularList.filteredNext(i -> i < 2));
+    }
 }
