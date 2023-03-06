@@ -1,10 +1,8 @@
 package lab01.tdd.step2;
 
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
-public class BackwardIterator extends CircularBaseIterator {
+public class BackwardIterator extends AbstractCircularIterator {
 
     public BackwardIterator(final List<Integer> list) {
         super(list);

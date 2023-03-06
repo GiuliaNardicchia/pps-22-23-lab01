@@ -1,10 +1,8 @@
 package lab01.tdd.step2;
 
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
-public class ForwardIterator extends CircularBaseIterator {
+public class ForwardIterator extends AbstractCircularIterator {
 
     public ForwardIterator(final List<Integer> list) {
         super(list);

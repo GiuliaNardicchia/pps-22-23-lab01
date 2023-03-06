@@ -4,12 +4,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-public abstract class CircularBaseIterator implements Iterator<Integer> {
+public abstract class AbstractCircularIterator implements Iterator<Integer> {
 
     protected final List<Integer> circularList;
     protected ListIterator<Integer> circularIterator;
 
-    public CircularBaseIterator(final List<Integer> list) {
+    public AbstractCircularIterator(final List<Integer> list) {
         this.circularList = list;
         this.reset();
     }
